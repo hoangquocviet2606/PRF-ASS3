@@ -15,7 +15,7 @@ const userArr = users.map((user) => parseUser(user));
 function parseUser(userData) {
   const user = new User(
     userData.firstname,
-    userData.lasttname,
+    userData.lastname,
     userData.username,
     userData.password,
     userData.pageSize,

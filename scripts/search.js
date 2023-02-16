@@ -27,7 +27,7 @@ if (userActive) {
   async function getDataNewsByKeywords(keywords, page) {
     try {
       const res = await fetch(
-        `https://newsapi.org/v2/everything?q=${keywords}&pageSize=${userActive.pageSize}&page=${page}&apiKey=79ff1f66586247e59c324a0e84036d77`
+        `https://newsapi.org/v2/everything?q=${keywords}&sortBy=relevancy&pageSize=${userActive.pageSize}&page=${page}&apiKey=79ff1f66586247e59c324a0e84036d77`
       );
       const data = await res.json();
       // Check loi qua 100 lan / 1 ngay

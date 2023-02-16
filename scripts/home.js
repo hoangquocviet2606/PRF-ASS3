@@ -10,7 +10,8 @@ function displayHome() {
   if (userActive) {
     loginModal.style.display = "none";
     mainContent.style.display = "block";
-    welcomeMessage.textContent = `Welcome ${userActive.firstname}`;
+    welcomeMessage.textContent = `Welcome ${userActive.firstname} ${userActive.lastname}`;
+    console.log(userActive);
   } else {
     loginModal.style.display = "block";
     mainContent.style.display = "none";

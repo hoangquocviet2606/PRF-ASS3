@@ -6,12 +6,14 @@ if (userActive) {
   const inputCategory = document.getElementById("input-category");
   const btnsubmit = document.getElementById("btn-submit");
   btnsubmit.addEventListener("click", function () {
-    if (validate) {
-      // Update userActive
+    // Validate input
+    if (Number(inputPageSize.value) < 1 || Number(inputPageSize.value) > 10) {
+      alert("Number không hợp lệ");
+    } else {
+      // Update userActive data
       userActive.pageSize = Number.parseInt(inputPageSize.value);
       userActive.category = inputCategory.value;
       saveToStorage("userActive", userActive);
-      // Update userArr
       const index = userArr.findIndex(
         (userItem) => userItem.username === userActive.username
       );
@@ -20,13 +22,6 @@ if (userActive) {
       alert("Cài đặt thành công");
       userActive.value = "";
       userActive.value = "General";
-    }
-    function validate() {
-      if (Number.isNaN(Number.parseInt(inputPageSize.value))) {
-        alert("Number không hợp lệ");
-        return false;
-      }
-      return true;
     }
   });
 } else {
