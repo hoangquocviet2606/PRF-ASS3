@@ -27,6 +27,7 @@ if (userActive) {
       alert("Error:" + err.message);
     }
   }
+  // Add event to btnPrev
   btnPrev.addEventListener("click", function () {
     getDataNews("us", --pageNum.textContent);
   });
@@ -37,6 +38,7 @@ if (userActive) {
       btnPrev.style.display = "block";
     }
   }
+  // Add event to btnNext
   btnNext.addEventListener("click", function () {
     getDataNews("us", ++pageNum.textContent);
   });
@@ -47,6 +49,7 @@ if (userActive) {
       btnNext.style.display = "block";
     }
   }
+  // Display data function
   function displayNewList(data) {
     totalResults = data.totalResults;
     checkBtnPrev();
