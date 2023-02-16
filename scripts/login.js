@@ -1,4 +1,5 @@
 "use strict";
+// Declare elements
 const inputUsername = document.getElementById("input-username");
 const inputPassword = document.getElementById("input-password");
 const btnSunmit = document.getElementById("btn-submit");
@@ -15,10 +16,11 @@ btnSunmit.addEventListener("click", function () {
       saveToStorage("userActive", user);
       window.location.assign("../index.html");
     } else {
-      alert("vui long kiem tra lai");
+      alert("Vui lòng kiểm tra lại");
     }
   }
 });
+// Validate Functions
 function validate() {
   if (inputUsername.value === "") {
     alert("Vui long nhap username");

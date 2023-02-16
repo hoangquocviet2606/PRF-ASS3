@@ -1,5 +1,7 @@
 "use strict";
+// Check login
 if (userActive) {
+  // Declare elements
   const inputPageSize = document.getElementById("input-page-size");
   const inputCategory = document.getElementById("input-category");
   const btnsubmit = document.getElementById("btn-submit");
@@ -15,19 +17,19 @@ if (userActive) {
       );
       userArr[index] = userActive;
       saveToStorage("userArr", userArr);
-      alert("cai dat thanh cong");
+      alert("Cài đặt thành công");
       userActive.value = "";
       userActive.value = "General";
     }
     function validate() {
       if (Number.isNaN(Number.parseInt(inputPageSize.value))) {
-        alert("Number khong hop le");
+        alert("Number không hợp lệ");
         return false;
       }
       return true;
     }
   });
 } else {
-  alert("Vui long dang nhap de truy cap ung dung");
+  alert("Vui lòng đăng nhập để truy cập ứng dụng");
   window.location.assign("../index.html");
 }

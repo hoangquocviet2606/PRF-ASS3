@@ -7,10 +7,10 @@ function getFromStorage(key) {
 function saveToStorage(key, value) {
   localStorage.setItem(key, JSON.stringify(value));
 }
-// Lấy dữ liệu userArr từ LocalStorage
+// Convert userArr from LocalStorage
 const users = getFromStorage("userArr") || [];
 
-// Chuyển đổi về dạng Class Instance
+// Convert userArr to Class Instance
 const userArr = users.map((user) => parseUser(user));
 function parseUser(userData) {
   const user = new User(
@@ -23,13 +23,13 @@ function parseUser(userData) {
   );
   return user;
 }
-// Lấy dữ liệu user đang đăng nhập
+// Get  userActive data
 let userActive = getFromStorage("userActive")
   ? parseUser(getFromStorage("userActive"))
   : null;
-// Chuyển dữ liệu todoArr từ LocalStorage
+// Convert todoArr from LocalStorage
 const todos = getFromStorage("todoArr") || [];
-// Chuyển đổi về dạng Class Instance
+// Convert todoArr to Class Instance
 const todoArr = todos.map((todo) => parseTask(todo));
 function parseTask(taskData) {
   const task = new Task(taskData.task, taskData.owner, taskData.isDone);

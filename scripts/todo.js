@@ -1,4 +1,5 @@
 "use strict";
+// Check login
 if (userActive) {
   const todoList = document.getElementById("todo-list");
   const btnAdd = document.getElementById("btn-add");
@@ -20,7 +21,7 @@ if (userActive) {
     toggleTasks();
     deleteTasks();
   }
-  // Add Task
+  // Add Function to button
   btnAdd.addEventListener("click", function () {
     if (inputTask.value.trim().length === 0) {
       alert("Vui long nhap");
@@ -32,7 +33,7 @@ if (userActive) {
       inputTask.value = "";
     }
   });
-  // Toggle Tasks
+  // Toggle Tasks Function
   function toggleTasks() {
     document.querySelectorAll("#todo-list li").forEach(function (liEl, idx) {
       liEl.addEventListener("click", function (e) {
@@ -50,7 +51,7 @@ if (userActive) {
       });
     });
   }
-  // Delete Tasks
+  // Delete Tasks Function
   function deleteTasks() {
     document.querySelectorAll("#todo-list .close").forEach(function (closeEl) {
       closeEl.addEventListener("click", function () {
@@ -61,14 +62,12 @@ if (userActive) {
             item.task === closeEl.parentElement.innerText.slice(0, -2)
         );
         todoArr.splice(index, 1);
-
         saveToStorage("todoArr", todoArr);
-
         displayTodoList();
       });
     });
   }
 } else {
-  alert("Vui long dang nhap de truy cap ung dung");
+  alert("Vui lòng đăng nhập để truy cập ứng dụng");
   window.location.assign("../index.html");
 }

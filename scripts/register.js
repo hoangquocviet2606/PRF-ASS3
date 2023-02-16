@@ -1,4 +1,5 @@
 "use strict";
+// Declare elements
 const inputFirsname = document.getElementById("input-firstname");
 const inputLastname = document.getElementById("input-lastname");
 const inputUsername = document.getElementById("input-username");
@@ -48,15 +49,15 @@ function validate(user) {
   if (
     !userArr.every((item) => (item.username !== user.username ? true : false))
   ) {
-    alert("user name da ton tai");
+    alert("username đã tồn tại");
     return false;
   }
   if (user.password !== inputPasswordConfirm.value) {
-    alert("Password va Confim password phai giong nhau");
+    alert("Password và Confim password phải giống nhau");
     return false;
   }
   if (user.password.length <= 8) {
-    alert("Password phai co nhieu hon 8 ky tu");
+    alert("Password phải có nhiều hơn 8 ký tự");
     return false;
   }
   return true;

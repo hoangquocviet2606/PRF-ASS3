@@ -1,12 +1,14 @@
 "use strict";
+// Check login
 if (userActive) {
+  // Declare elements
   const newsContainer = document.getElementById("news-container");
   const btnPrev = document.getElementById("btn-prev");
   const pageNum = document.getElementById("page-num");
   const btnNext = document.getElementById("btn-next");
   let totalResults = 0;
   getDataNews("us", 1);
-
+  // Get data call API
   async function getDataNews(country, page) {
     try {
       const res = await fetch(
@@ -74,6 +76,6 @@ if (userActive) {
     newsContainer.innerHTML = html;
   }
 } else {
-  alert("Vui long dang nhap de truy cap ung dung");
+  alert("Vui lòng đăng nhập để truy cập ứng dụng");
   window.location.assign("../index.html");
 }

@@ -9,7 +9,6 @@ if (userActive) {
   const btnPrev = document.getElementById("btn-prev");
   const pageNum = document.getElementById("page-num");
   const btnNext = document.getElementById("btn-next");
-  // console.log(btnPrev);
   let totalResults = 0;
   let keywords = 0;
   navPageNum.style.display = "none";
@@ -18,7 +17,7 @@ if (userActive) {
     newsContainer.innerHTML = "";
     if (inputQuery.value.trim().length === 0) {
       navPageNum.style.display = "none";
-      alert("Vui long nhap keywords de tim kiem");
+      alert("Vui lòng nhập keywords để tìm kiếm");
     } else {
       keywords = inputQuery.value;
       getDataNewsByKeywords(keywords, 1);
@@ -27,7 +26,6 @@ if (userActive) {
   // Get data call API
   async function getDataNewsByKeywords(keywords, page) {
     try {
-      // &sortBy=relevancy&pageSize=${userActive.pageSize}
       const res = await fetch(
         `https://newsapi.org/v2/everything?q=${keywords}&pageSize=${userActive.pageSize}&page=${page}&apiKey=79ff1f66586247e59c324a0e84036d77`
       );
@@ -40,7 +38,7 @@ if (userActive) {
       // Neu ko co bai viet nao thi thong bao
       if (data.totalResults == 0) {
         navPageNum.style.display = "none";
-        throw new Error("khong co bai bao phu hop voi tu khoa tim kiem");
+        throw new Error("Không có từ khóa hợp lệ");
       }
       // Check loi tep tin khong qua server
       if (data.code == "corsNotAllowed") {
@@ -100,6 +98,6 @@ if (userActive) {
     newsContainer.innerHTML = html;
   }
 } else {
-  alert("Vui long dang nhap de truy cap ung dung");
+  alert("Vui lòng đăng nhập để truy cập ứng dụng");
   window.location.assign("../index.html");
 }

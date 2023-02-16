@@ -1,10 +1,11 @@
 "use strict";
+// Declare elements
 const loginModal = document.getElementById("login-modal");
 const mainContent = document.getElementById("main-content");
 const welcomeMessage = document.getElementById("welcome-message");
 const btnLogout = document.getElementById("btn-logout");
 displayHome();
-
+// Display function
 function displayHome() {
   if (userActive) {
     loginModal.style.display = "none";
@@ -15,7 +16,7 @@ function displayHome() {
     mainContent.style.display = "none";
   }
 }
-// su kien nut logout
+// Logout Function
 btnLogout.addEventListener("click", function () {
   const isLogout = confirm("Ban chac chan muon logout");
   if (isLogout) {
